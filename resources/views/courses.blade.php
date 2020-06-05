@@ -13,18 +13,18 @@
             <a class="nav-link active" href="courses">Courses</a>
         </li>
     </ul>
-</div>
 <br/>
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">Dashboard</div>
-            <!-- Courses -->
-                <br/>
-                <div class="col-sm-10">
-                    Wait for opening.
-                </div>
-                <br/>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+                <!-- Courses -->
+                    <br/>
+                    <div class="col-sm-10">
+                        Wait for opening.
+                    </div>
+                    <br/>
+            </div>
         </div>
     </div>
 </div>

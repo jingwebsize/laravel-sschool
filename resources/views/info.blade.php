@@ -13,57 +13,57 @@
             <a class="nav-link" href="courses">Courses</a>
         </li>
     </ul>
-</div>
 <br/>
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">Supplementary Information</div>
-            <form method="POST" action="profile/{{$info->id}}">
-                @csrf
-            <div class="col-md-10">
-                <br/>
-                <!-- <input type="text" name="infoid" value="{{ $info->id }}" hidden>  -->
-                <!-- <div class="form-group">
-                    <label for="url">Payment Receipt</label>
-                    <input type="file" class="form-control-file" id="url" name="url">
-                </div> -->
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">Supplementary Information</div>
+                <form method="POST" action="profile/{{$info->id}}">
+                    @csrf
+                <div class="col-md-10">
+                    <br/>
+                    <!-- <input type="text" name="infoid" value="{{ $info->id }}" hidden>  -->
+                    <!-- <div class="form-group">
+                        <label for="url">Payment Receipt</label>
+                        <input type="file" class="form-control-file" id="url" name="url">
+                    </div> -->
 
-                <!-- <form class="form-horizontal" method="POST" action="profile/upload" enctype="multipart/form-data"> -->
-                    <!-- {{ csrf_field() }}            -->
-                <div class="form-group">
-                    <label for="file">Payment Receipt</label>
-                    <input id="payfile" type="file" class="form-control" name="payfile">
-                    <input id="payurl" type="text" name="url" value="{{$info->url}}" hidden>    
-                </div> 
-                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                <!-- </form> -->
-            </div>
-            <div class="col-md-5 mb-3">
-                <label for="tsize">T-shirt Size</label>
-                <select class="custom-select d-block w-100" id="tsize" name="tsize">
-                    <option value="0">Choose...</option>
-                    <option value="1">S</option>
-                    <option value="2">M</option>
-                    <option value="3">L</option>
-                    <option value="4">XL</option>
-                </select>
-            </div>
-            <div class="col-md-10">
-                <div class="form-group">
-                    <label for="fileurl">Summary file</label>
-                    <input id="sumfile" type="file" class="form-control-file" name="sumfile">
-                    <input id="sumurl" type="text" name="file" value="{{$info->file}}" hidden> 
-                </div>               
-            </div>
-            <br/> 
-            <!-- <div class="row justify-content-md-center"> -->
-                <div class="col-md-5">
-                    <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+                    <!-- <form class="form-horizontal" method="POST" action="profile/upload" enctype="multipart/form-data"> -->
+                        <!-- {{ csrf_field() }}            -->
+                    <div class="form-group">
+                        <label for="file">Payment Receipt</label>
+                        <input id="payfile" type="file" class="form-control" name="payfile">
+                        <input id="payurl" type="text" name="url" value="{{$info->url}}" hidden>    
+                    </div> 
+                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                    <!-- </form> -->
                 </div>
-            <!-- </div> -->
-            <br/>        
-            </form>
+                <div class="col-md-5 mb-3">
+                    <label for="tsize">T-shirt Size</label>
+                    <select class="custom-select d-block w-100" id="tsize" name="tsize">
+                        <option value="0">Choose...</option>
+                        <option value="1">S</option>
+                        <option value="2">M</option>
+                        <option value="3">L</option>
+                        <option value="4">XL</option>
+                    </select>
+                </div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="fileurl">Summary file</label>
+                        <input id="sumfile" type="file" class="form-control-file" name="sumfile">
+                        <input id="sumurl" type="text" name="file" value="{{$info->file}}" hidden> 
+                    </div>               
+                </div>
+                <br/> 
+                <!-- <div class="row justify-content-md-center"> -->
+                    <div class="col-md-5">
+                        <button type="submit" class="btn btn-primary btn-block">Confirm</button>
+                    </div>
+                <!-- </div> -->
+                <br/>        
+                </form>
+            </div>
         </div>
     </div>
 </div>

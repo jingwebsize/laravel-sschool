@@ -12,10 +12,9 @@
             <a class="nav-link" href="{{route('courses')}}">Courses</a>
         </li>
     </ul>
-</div>
 <br/>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Information</div>
                 <div class="card-body">
@@ -129,6 +128,7 @@
         </div>
         
     </div>
+</div>
 
 <script src="{{asset('bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js')}}"></script>
 <script>
