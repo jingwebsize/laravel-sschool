@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="school" class="col-sm-2 col-form-label">Institute</label>
+                            <label for="school" class="col-sm-2 col-form-label">Anstitute</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="school" id="school" value="{{ $profile->school}}" required>
                             </div>
