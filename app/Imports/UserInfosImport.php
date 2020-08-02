@@ -37,7 +37,7 @@ class UserInfosImport implements ToCollection
                 'name' => $rows[$i][0],
                 'tel' => $rows[$i][4],
                 'email' => $rows[$i][5],
-                'password' => Hash::make('123456'), 
+                'password' => Hash::make($rows[$i][4]), 
                 'userid' => $userid,
             ]);
             UserProfile::create([
@@ -48,9 +48,11 @@ class UserInfosImport implements ToCollection
                 'tel' => $rows[$i][4],
                 'email' => $rows[$i][5],
                 'tutor'=>$rows[$i][6],
-                'major' =>$rows[$i][7],
-                'grade' =>ArrFilter::make($rows[$i][8],$gradearr),
-                'type' =>ArrFilter::make($rows[$i][9],$typearr),
+                'major' =>$rows[$i][8],
+                'grade' =>ArrFilter::make($rows[$i][9],$gradearr),
+                'type' =>ArrFilter::make($rows[$i][10],$typearr),
+                'addr' =>$rows[$i][11],
+                'house' =>substr($rows[$i][11], 0, 1),
                 'userid' => $userid,
                 'year' => $this->year,
             ]);

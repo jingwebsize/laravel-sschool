@@ -49,8 +49,10 @@
                 
                 <div class="col-md-10" id="video" hidden = "hidden">
                     <div class="form-group">
-                        <label for="videourl">Url of the Video</label>
+                        <label for="videourl">Url of the video (<a href="{{url('userimg/video_upload.png')}}" target="_blank">Read me</a>)</label>
                         <textarea id="videourl" class="form-control" name="videourl" rows="3">{{$poster->videourl}}</textarea>
+                        
+                        
                         <!-- <input id="videourl" class="form-control" type="text" name="videourl" value="{{$poster->videourl}}">  -->
                     </div>               
                 </div>

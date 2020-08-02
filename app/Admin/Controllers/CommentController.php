@@ -28,12 +28,13 @@ class CommentController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->model()->orderBy('created_at','desc');
-        $grid->column('commenter_id', __('Commenter id'));
+        $grid->column('commenter.name', __('Username'));
+        // $grid->column('commenter_id', __(' id'));
         // $grid->column('commenter_type', __('Commenter type'));
         // $grid->column('guest_name', __('Guest name'));
         // $grid->column('guest_email', __('Guest email'));
         // $grid->column('commentable_type', __('Commentable type'));
-        $grid->column('commentable_id', __('Commentable id'));
+        $grid->column('commentable_id', __('Poster id'));
         $grid->column('comment', __('Comment'));
         // $grid->column('approved', __('Approved'));
         $grid->column('child_id', __('Child id'));
