@@ -8,7 +8,7 @@ class UserProfile extends Model
 {
     //
     protected $fillable = [
-        'userid','name','school','sex', 'birth','tel','email','tutor','major','grade','type','year','idcard','reason','file'
+        'userid','name','school','sex', 'birth','tel','email','tutor','major','grade','type','year','idcard','reason','file','addr','house'
     ];
     protected $guarded = [''];
     public function user()

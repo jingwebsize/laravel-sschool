@@ -56,7 +56,7 @@ class UserController extends AdminController
         $grid->column('name', 'Name');
         $grid->column('school', 'School')->sortable();
         $grid->column('tutor', 'Supervisor')->sortable();
-        $grid->column('major', 'Major')->sortable();
+        $grid->column('major', 'Major')->width(200)->sortable();
         $grid->column('type', 'Type')->using($typearr)->filter();
         $grid->column('user.tel', 'Tel');
         $grid->column('user.email', 'Email(Username)');
