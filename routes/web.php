@@ -13,15 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/',function(){
+    return Redirect::to('/postersubmit');
+    });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home/{id}', 'HomeController@update')->name('homeupdate');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::post('/home/{id}', 'HomeController@update')->name('homeupdate');
 Route::get('/profile', 'UserInfoController@index')->name('profile');
 Route::post('/profile/upload', 'UserInfoController@upload')->name('profileupload');
 Route::post('/profile/{id}', 'UserInfoController@update')->name('profileupdate');
-Route::get('/courses', 'CoursesController@index')->name('courses');
+// Route::get('/courses', 'CoursesController@index')->name('courses');
+Route::get('/poster', 'PosterController@index')->name('poster');
+Route::get('/poster/{poster}', 'PosterController@show')->name('poster.show');
+Route::get('/poster/{poster}/cancel', 'PosterController@cancel')->name('poster.cancel');
+Route::get('/poster/{poster}/likeit', 'PosterController@likeit')->name('poster.likeit');
+Route::get('/postersubmit', 'PosterController@create')->name('poster.create');
+Route::post('/postersubmit', 'PosterController@update')->name('poster.update');
+Route::get('/postercomments/{poster}', 'PosterController@comments')->name('poster.comment');
+Route::get('/postercommentshow/{poster}', 'PosterController@commentshow')->name('poster.commentshow');
+// Route::get('/download', 'DownloadController@index')->name('download');

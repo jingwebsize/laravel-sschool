@@ -2,41 +2,38 @@
 
 @section('content')
 <div class="container">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
+    <!-- <ul class="nav nav-tabs"> -->
+        <!-- <li class="nav-item">
             <a class="nav-link" href="home">Home</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
             <a class="nav-link active" href="profile">Profile</a>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="courses">Courses</a>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="poster">Poster</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="courses">Courses</a>
+            <a class="nav-link" href="download">Download</a>
         </li>
-    </ul>
+    </ul> -->
 <br/>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Supplementary Information</div>
+                <!-- <div class="card-header">Supplementary Information</div> -->
+                <div class="card-header">Information</div>
                 <form method="POST" action="profile/{{$info->id}}">
                     @csrf
-                <div class="col-md-10">
+                <!-- <div class="col-md-10">
                     <br/>
-                    <!-- <input type="text" name="infoid" value="{{ $info->id }}" hidden>  -->
-                    <!-- <div class="form-group">
-                        <label for="url">Payment Receipt</label>
-                        <input type="file" class="form-control-file" id="url" name="url">
-                    </div> -->
-
-                    <!-- <form class="form-horizontal" method="POST" action="profile/upload" enctype="multipart/form-data"> -->
-                        <!-- {{ csrf_field() }}            -->
                     <div class="form-group">
                         <label for="file">Payment Receipt</label>
                         <input id="payfile" type="file" class="form-control" name="payfile">
                         <input id="payurl" type="text" name="url" value="{{$info->url}}" hidden>    
                     </div> 
-                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                    <!-- </form> -->
                 </div>
                 <div class="col-md-5 mb-3">
                     <label for="tsize">T-shirt Size</label>
@@ -47,10 +44,11 @@
                         <option value="3">L</option>
                         <option value="4">XL</option>
                     </select>
-                </div>
+                </div> -->
+                <br/>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <label for="fileurl">Summary file</label>
+                        <!-- <label for="fileurl">Summary file</label> -->
                         <input id="sumfile" type="file" class="form-control-file" name="sumfile">
                         <input id="sumurl" type="text" name="file" value="{{$info->file}}" hidden> 
                     </div>               
@@ -77,6 +75,11 @@
     $("#payfile").fileinput({
         initialPreview: payurl,
         initialPreviewAsData: true,
+        initialPreviewConfig: [
+            {caption:"{{$info->url}}", }
+        ],
+        initialPreviewFileType: "object",
+        previewFileIcon: "<i class='fas fa-file-image'></i>",
         // language:'zh',                                          // 多语言设置，需要引入local中相应的js，例如locales/zh.js
         // theme: "explorer-fa",                                // 主题
         uploadUrl: "profile/upload",         // 上传地址
@@ -93,7 +96,6 @@
         dropZoneEnabled: false,
         uploadExtraData: {'filename':'payfile','filetype':'userimg','_token':"{{ csrf_token() }}"},   // 上传数据
         // browseClass: "btn btn-primary", //按钮样式
-        previewFileIcon: "<i class='fas fa-file-image'></i>",
         // hideThumbnailContent:true,                  // 是否隐藏文件内容
         layoutTemplates :{
             actionDelete:'', //去除上传预览的缩略图中的删除图标
@@ -107,8 +109,18 @@
         // 清除掉上次上传的图片
         $(".uploadPreview").find(".file-preview-frame:first").remove();
         $(".uploadPreview").find(".kv-zoom-cache:first").remove();
-    }).on("filebatchselected", function(e, files) {        
-        $(this).fileinput("upload");             // 文件选择完直接调用上传方法。
+    }).on("filebatchselected", function(e, files) {  
+        // console.log(e);
+        // console.log(JSON.stringify(files)=="{}");  
+        // console.log(typeof(files.length) == "undefined" );  
+        if(JSON.stringify(files)=="{}"){
+            // $(e.target).fileinput('clear');
+            // $(e.target).fileinput('unlock');
+            return;
+        }else{
+            // console.log(1);
+            $(this).fileinput("upload");             // 文件选择完直接调用上传方法。
+        }
     }).on("filebatchuploadsuccess", function(event, data) { // 上传成功回调
         // alert("Upload Success!");
         // console.log(data);
@@ -121,13 +133,18 @@
     $("#sumfile").fileinput({
         initialPreview: fileurl,
         initialPreviewAsData: true,
+        initialPreviewConfig: [
+            {caption:"{{$info->file}}", }
+        ],
+        initialPreviewFileType: "object",
+        previewFileIcon: "<i class='fas fa-file-image'></i>",
         // language:'zh',                                          // 多语言设置，需要引入local中相应的js，例如locales/zh.js
         // theme: "explorer-fa",                                // 主题
         uploadUrl: "profile/upload",         // 上传地址
         uploadAsync: false, //默认异步上传
         maxFileCount: 1,                                        // 最大上传数量
         autoOrientImage:false,
-        allowedFileExtensions : ['jpg', 'png','gif','jpeg','pdf','doc','docx'],//允许的文件类型
+        allowedFileExtensions : ['doc','docx'],//允许的文件类型
         enctype:'multipart/form-data',
         // showPreview: true,                                   //是否显示预览
         showRemove: true,                                       // 显示移除按钮

@@ -40,8 +40,8 @@ class UserController extends AdminController
 
         // return $grid;
         $typearr = array('无','硕士','博士','硕博连读','博士后','青年教师');
-        // $grid = new Grid(new UserProfile());
-        $grid = new Grid(new User());
+        $grid = new Grid(new UserProfile());
+        // $grid = new Grid(new User());
         // $grid->column('user.id', 'Id');
         // $grid->column('user.tel', '用户名(手机号)')->sortable();
         // $grid->column('user.email', 'Email');
@@ -50,27 +50,41 @@ class UserController extends AdminController
         // $grid->column('tutor', '导师')->sortable();
         // $grid->column('type', '类别')->using($typearr)->filter();
         // $grid->column('url')->link();
-        $grid->column('id', 'Id');
+        $grid->column('user.id', 'Id');
+        $grid->column('house', 'Group');
         $grid->column('name', 'Name');
-        $grid->column('tel', 'Tel(Username)')->sortable();
-        $grid->column('email', 'Email');
-        $grid->column('profile', 'History')->display(function ($profile){
-            $count = count($profile);
-            return "<span style='color:blue'>$count</span>";
-        })->modal('Detail',function ($model) {
-            $firstone = $model->profile()->first()->only(['year', 'school', 'tutor','type','major']);
-            $str ='';
-            foreach ($firstone as $key=>$res){
-                $key=ucfirst($key);
-                $str.="<div class='mb-3'><label>$key:</label> $res</div>";
-            }
-            return "$str";
-        });
+        $grid->column('school', 'School')->sortable();
+        $grid->column('tutor', 'Supervisor')->sortable();
+        $grid->column('major', 'Major')->sortable();
+        $grid->column('type', 'Type')->using($typearr)->filter();
+        $grid->column('user.tel', 'Tel');
+        $grid->column('user.email', 'Email(Username)');
+        // $grid->column('profile', 'History')->display(function ($profile){
+        //     $count = count($profile);
+        //     return "<span style='color:blue'>$count</span>";
+        // })->modal('Detail',function ($model) {
+        //     $firstone = $model->profile()->first()->only(['year', 'school', 'tutor','type','major']);
+        //     $str ='';
+        //     foreach ($firstone as $key=>$res){
+        //         $key=ucfirst($key);
+        //         $str.="<div class='mb-3'><label>$key:</label> $res</div>";
+        //     }
+        //     return "$str";
+        // });
         // $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
-        $grid->exporter(new UsersExport());
+        // $grid->column('updated_at', __('Updated at'));
+        // $grid->exporter(new UsersExport());
         $grid->tools(function (Grid\Tools $tools) {
             $tools->append(new ImportUser());
+        });
+        $grid->filter(function($filter){
+
+            // 去掉默认的id过滤器
+            $filter->disableIdFilter();
+        
+            $filter->like('name', 'Name');
+            $filter->like('email', 'Email');
+            $filter->like('tel', 'Tel');
         });
 
         return $grid;

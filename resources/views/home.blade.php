@@ -152,6 +152,11 @@
     $("#refile").fileinput({
         initialPreview: reurl,
         initialPreviewAsData: true,
+        initialPreviewConfig: [
+            {caption:"{{$profile->file}}", }
+        ],
+        initialPreviewFileType: "object",
+        previewFileIcon: "<i class='fas fa-file-image'></i>",
         // language:'zh',                                          // 多语言设置，需要引入local中相应的js，例如locales/zh.js
         // theme: "explorer-fa",                                // 主题
         uploadUrl: "profile/upload",         // 上传地址
