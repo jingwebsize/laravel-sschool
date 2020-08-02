@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',function(){
     return Redirect::to('/postersubmit');
     });
+Route::get('/home',function(){
+    return Redirect::to('/postersubmit');
+    });
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
