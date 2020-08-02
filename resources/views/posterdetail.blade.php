@@ -23,7 +23,7 @@
     }
     #comments{
         width: 100%;
-        height: 700px;
+        height: 2000px;
     }
     
     /* #videoBox { 
