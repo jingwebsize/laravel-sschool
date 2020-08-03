@@ -3,14 +3,15 @@
 @section('content')
 <style>
     img{
-        max-width: 900px;
+        max-width: 100%;
+        height: auto;
     }
-    @media only screen and (max-width: 1000px) {
+    /* @media only screen and (max-width: 1000px) {
         img {
         max-width: 100%; 
         height: auto;
         }
-    }
+    } */
     iframe{
         width: 700px;
         height: 500px;
