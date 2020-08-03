@@ -24,9 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    SUMMER SCHOOL
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}">SUMMER SCHOOL</a>
                 <!-- <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{route('poster.create')}}">Poster Submit</a>
