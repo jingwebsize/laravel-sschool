@@ -7,7 +7,7 @@
 @endphp
 
 @if($comments->count() < 1)
-    <div class="alert alert-warning">There are no comments yet.</div>
+    <div class="alert alert-warning">此海报还未被评论。</div>
 @endif
 
 <ul class="list-unstyled">

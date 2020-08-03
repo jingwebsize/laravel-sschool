@@ -7,7 +7,7 @@
 @endphp
 
 @if($comments->count() < 1)
-    <div class="alert alert-warning">There are no comments yet.</div>
+    <div class="alert alert-warning">此海报还未被评论。</div>
 @endif
 
 @auth
@@ -19,9 +19,9 @@
 @else
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Authentication required</h5>
-            <p class="card-text">You must log in to post a comment.</p>
-            <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
+            <h5 class="card-title">登录授权</h5>
+            <p class="card-text">您必须要登录之后才能评论。</p>
+            <a href="{{ route('login') }}" class="btn btn-primary">登录</a>
         </div>
     </div>
 @endauth

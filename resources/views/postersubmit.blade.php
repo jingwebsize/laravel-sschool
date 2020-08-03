@@ -4,26 +4,26 @@
 <div class="container">
 <br/>
     @if($poster->flag>0) 
-    Waiting for Review ...
+    完成提交，请等待审核。
     @else
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <!-- <div class="card-header">Supplementary Information</div> -->
-                <div class="card-header">Information</div>
+                <div class="card-header">提交信息</div>
                 <form method="POST" action="postersubmit">
                     @csrf
                 <div class="col-md-10">
                     <br/>
                     <div class="form-group">
-                        <label for="title">Title</label>
+                        <label for="title">墙报题目</label>
                         <input id="title" class="form-control" type="text" name="title" value="{{$poster->title}}">    
                     </div> 
                 </div>
                 <br/>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <label for="file">Image of the Poster（<10M jpg/png/gif/jpeg)</label>
+                        <label for="file">墙报图（<10M jpg/png/gif/jpeg)</label>
                         <input id="imgfile" type="file" class="form-control" name="imgfile">
                         <input id="imgurl" type="text" name="imgurl" value="{{$poster->imgurl}}" hidden>    
                     </div> 
@@ -31,17 +31,17 @@
                 <br/>
                 <div class="col-md-4 btn-group" data-toggle="buttons" id="option">
                     <label class="btn btn-secondary active">
-                        <input type="radio" name="isvideo" id="option1" autocomplete="off" value="0" {{$poster->isvideo? '':'checked'}} /> Audio
+                        <input type="radio" name="isvideo" id="option1" autocomplete="off" value="0" {{$poster->isvideo? '':'checked'}} /> 音频
                     </label>
                     <label class="btn btn-secondary">
-                        <input type="radio" name="isvideo" id="option2" autocomplete="off" value="1" {{$poster->isvideo? 'checked':''}} /> Video
+                        <input type="radio" name="isvideo" id="option2" autocomplete="off" value="1" {{$poster->isvideo? 'checked':''}} /> 视频
                     </label>
                 </div>
                 <br/>
                 <br/>
                 <div class="col-md-10" id="audio" hidden = "hidden">
                     <div class="form-group">
-                        <label for="file">Audio of the Poster（<7M mp3/m4a)</label>
+                        <label for="file">音频解说文件（<7M mp3/m4a)</label>
                         <input id="aufile" type="file" class="form-control" name="aufile">
                         <input id="audiourl" type="text" name="audiourl" value="{{$poster->audiourl}}" hidden>    
                     </div> 
@@ -49,7 +49,7 @@
                 
                 <div class="col-md-10" id="video" hidden = "hidden">
                     <div class="form-group">
-                        <label for="videourl">Url of the video (<a href="{{url('userimg/video_upload.png')}}" target="_blank">Read me</a>)</label>
+                        <label for="videourl">视频解说文件 (<a href="{{url('userimg/video_upload.png')}}" target="_blank">视频链接说明</a>)</label>
                         <textarea id="videourl" class="form-control" name="videourl" rows="3">{{$poster->videourl}}</textarea>
                         
                         
@@ -60,7 +60,7 @@
                 <br/> 
                 <!-- <div class="row justify-content-md-center"> -->
                     <div class="col-md-5">
-                        <button type="submit" class="btn btn-primary btn-block" onclick="javascript:return confirm('Do you confirm?');">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block" onclick="javascript:return confirm('提交后不可修改，确定提交吗?');">提交</button>
                     </div>
                 <!-- </div> -->
                 <br/>        
@@ -92,6 +92,7 @@
     var imgurl = "{{ $poster->imgurl? asset('userimg/'.$poster->imgurl):null }}";
     var audiourl = "{{ $poster->audiourl? asset('userimg/'.$poster->audiourl):null }}";
     $("#imgfile").fileinput({
+        language: 'zh',
         initialPreview: imgurl,
         initialPreviewAsData: true,
         initialPreviewConfig: [
@@ -151,6 +152,7 @@
     });
 
     $("#aufile").fileinput({
+        language: 'zh',
         initialPreview: audiourl,
         initialPreviewAsData: true,
         initialPreviewConfig: [

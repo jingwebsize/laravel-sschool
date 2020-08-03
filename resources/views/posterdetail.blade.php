@@ -94,7 +94,7 @@
                 @else
                     <a href="/poster/{{$poster->id}}/likeit" type="button" class="btn-outline-primary"><i class="far fa-thumbs-up"></i> I Like it</a>
                 @endif -->
-                <button type="button" class="btn {{ $poster->star(Auth::user()->userid)->exists()? 'btn-primary':'btn-outline-primary'}}" id="starbutton" onclick="mymethod()"><i id="starlogo" class="{{ $poster->star(Auth::user()->userid)->exists()? 'fas':'far'}} fa-thumbs-up"></i> I like it</button>
+                <button type="button" class="btn {{ $poster->star(Auth::user()->userid)->exists()? 'btn-primary':'btn-outline-primary'}}" id="starbutton" onclick="mymethod()"><i id="starlogo" class="{{ $poster->star(Auth::user()->userid)->exists()? 'fas':'far'}} fa-thumbs-up"></i> 点赞</button>
                 
             </div>
             <br/>
@@ -112,8 +112,8 @@
                     <!-- <source src="{{url('userimg/111.mp3')}}" type="audio/mpeg" /> -->
                     <!-- <source src="{{url('userimg/20200731_174008.m4a')}}" type="audio/mpeg" /> -->
                     <source src="{{url('userimg/'.$poster->audiourl)}}" type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                    <a href="{{url('userimg/'.$poster->audiourl)}}" target="_blank">Audio here</a>
+                    您的浏览器不支持此组件。
+                    <a href="{{url('userimg/'.$poster->audiourl)}}" target="_blank">音频链接</a>
                 </audio>
                 @endif
                 
@@ -126,7 +126,7 @@
             </div>
             <br/>
             <br/>
-            <h3>Q & A</h3>
+            <h3>讨论区</h3>
             <hr/>
             <!-- <div id="vueapp"><comments-list v-bind:postid="{{$poster->id}}"></comments-list></div> -->
             <!-- <div class="commentsdiv"> -->

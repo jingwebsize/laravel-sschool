@@ -40,19 +40,19 @@
 
             <div class="form-group">
                 <!-- <label for="message">Enter your message here:</label> -->
-                <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" rows="3" placeholder="Enter your message here."></textarea>
+                <textarea class="form-control @if($errors->has('message')) is-invalid @endif" name="message" rows="3" placeholder="请输入文字"></textarea>
                 <div class="invalid-feedback">
-                    Your message is required.
-                    <!-- 请输入文字 -->
+                    <!-- Your message is required. -->
+                    请输入文字
                 </div>
                 <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
             </div>
             <!-- <div class="row"> -->
                 <!-- <div class="col-md-2"> -->
-                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Submit</button>
-                <!-- <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">回复</button> -->
+                <!-- <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Submit</button> -->
+                <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">立即评论</button>
                 <!-- </div><div class="col-md-2"> -->
-                <!-- <a class="btn btn-sm btn-outline-primary ml-4" role="button" target="comments" href="/postercomments/{{$poster->id}}">Comments Update</a> -->
+                <a class="btn btn-sm btn-outline-primary ml-4" role="button" target="comments" href="/postercomments/{{$poster->id}}">评论区更新</a>
                 <!-- </div> -->
             </div>
         </form>

@@ -11,11 +11,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/zh.js') }}" ></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('fontawesome-free-5.13.0-web/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css') }}">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,7 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">SUMMER SCHOOL</a>
+                <a class="navbar-brand" href="{{ url('/') }}">电化学研究范式</a>
                 <!-- <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link active" href="{{route('poster.create')}}">Poster Submit</a>
@@ -41,10 +43,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('poster.create')}}">Poster Submit</a>
+                            <a class="nav-link" href="{{route('poster.create')}}">海报提交</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('poster')}}">Poster Presentation</a>
+                            <a class="nav-link" href="{{route('poster')}}">海报展</a>
                         </li>
                     </ul>
 
