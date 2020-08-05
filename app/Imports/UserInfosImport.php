@@ -52,7 +52,7 @@ class UserInfosImport implements ToCollection
                 'grade' =>ArrFilter::make($rows[$i][9],$gradearr),
                 'type' =>ArrFilter::make($rows[$i][10],$typearr),
                 'addr' =>$rows[$i][11],
-                'house' =>substr($rows[$i][11], 0, 1),
+                'house' =>$rows[$i][12],
                 'userid' => $userid,
                 'year' => $this->year,
             ]);
