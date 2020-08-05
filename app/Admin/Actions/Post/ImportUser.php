@@ -30,7 +30,6 @@ use App\User;
 class ImportUser extends Action
 {
 
-
     protected $selector = '.import-post';
     public function handle(Request $request)
     {
@@ -61,7 +60,7 @@ class ImportUser extends Action
     public function html()
     {
         return <<<HTML
-        <a class="btn btn-sm btn-default import-post">Import</a>
+        <a class="btn btn-sm btn-default import-post">导入</a>
 HTML;
     }
 }

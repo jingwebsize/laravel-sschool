@@ -16,7 +16,7 @@ class PosterController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Poster';
+    protected $title = '海报';
 
     /**
      * Make a grid builder.
@@ -26,9 +26,9 @@ class PosterController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Poster());
-        $grid->column('id', __('Id'));
+        $grid->column('id', __('Id'))->sortable();
         $grid->model()->withCount(['comments','stars']);
-        $grid->column('title', __('Title'))->link(function ($poster) {
+        $grid->column('title', '题目')->link(function ($poster) {
             $link = url("poster/".$poster->id);
             return $link;
         });
@@ -40,7 +40,7 @@ class PosterController extends AdminController
         // $grid->column('userid', __('Userid'));
         
 
-        $grid->column('user.name', __('Username'));
+        $grid->column('user.name','作者');
         // $grid->column('flag', __('Flag'))->display(function ($flag,$column) {
         //     if ($flag == 0) {
         //         return '<span class="badge badge-danger">Off</span>';
@@ -51,14 +51,14 @@ class PosterController extends AdminController
         //     // 否则显示为editable
         //     return $column->radio($states);
         // })->filter();
-        $grid->column('flag', __('Pass'))->action(Pass::class)->filter();
+        $grid->column('flag', '状态')->action(Pass::class)->filter();
         
         // $grid->column('stars', 'Stars')->display(function ($stars){
         //     $count = count($stars);
         //     return "<span style='color:blue'>$count</span>";
         // });
-        $grid->column('stars_count', 'Stars')->sortable();
-        $grid->column('comments_count', 'Comments')->sortable();
+        $grid->column('stars_count', '点赞数')->sortable();
+        $grid->column('comments_count', '评论数')->sortable();
         // $grid->column('created_at', __('Created at'));
         // $grid->column('updated_at', __('Updated at'));
 

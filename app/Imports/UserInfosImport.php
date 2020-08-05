@@ -16,7 +16,7 @@ class UserInfosImport implements ToCollection
     * @param Collection $collection
     */
     
-    
+
     public function __construct(string $year)
     {
         $this->year = $year;

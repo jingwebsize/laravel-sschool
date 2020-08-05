@@ -12,4 +12,10 @@ class UserInfo extends Model
     {
         return $this->belongsTo(User::class, 'userid', 'userid', 'user');
     }
+    public function zans(){
+        return $this->hasMany(Zan::class,'summaryid','id');
+    }
+    public function zan($userid){
+        return $this->hasMany(Zan::class,'summaryid','id')->where('userid',$userid);
+    }
 }

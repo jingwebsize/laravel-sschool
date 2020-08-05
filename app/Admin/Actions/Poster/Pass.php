@@ -15,7 +15,7 @@ class Pass extends RowAction
         $poster->save();
       
         // 保存之后返回新的html到前端显示
-        $html = "<i class=\"fa fa-check-square\"></i> Pass";
+        $html = "<i class=\"fa fa-check-square\"></i> 通过";
       
         return $this->response()->html($html);
 
@@ -24,9 +24,9 @@ class Pass extends RowAction
     public function display($star)
     {
         if ($star == 1)
-            return "<i class=\"fa fa-check-square-o\"></i> Submit" ;
+            return "<i class=\"fa fa-check-square-o\"></i> 已提交" ;
         if ($star == 2)
-            return "<i class=\"fa fa-check-square\"></i> Pass" ;
+            return "<i class=\"fa fa-check-square\"></i> 通过" ;
     }
 
 }

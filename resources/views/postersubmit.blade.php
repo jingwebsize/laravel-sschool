@@ -4,7 +4,7 @@
 <div class="container">
 <br/>
     @if($poster->flag>0) 
-    完成提交，请等待审核。
+    <h6>完成提交，请等待审核。</h6>
     @else
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -105,7 +105,7 @@
         uploadUrl: "profile/upload",         // 上传地址
         uploadAsync: false, //默认异步上传
         maxFileCount: 1,                                        // 最大上传数量
-        maxFileSize : 10240000, 
+        maxFileSize : 10240, 
         autoOrientImage:false,
         allowedFileExtensions : ['jpg', 'png','gif','jpeg'],//允许的文件类型
         enctype:'multipart/form-data',
@@ -165,7 +165,7 @@
         uploadUrl: "profile/upload",         // 上传地址
         uploadAsync: false, //默认异步上传
         maxFileCount: 1,                                        // 最大上传数量
-        maxFileSize : 8000000, 
+        maxFileSize : 8000, 
         autoOrientImage:false,
         // allowedFileTypes:['audio'],
         allowedFileExtensions : ['mp3', 'm4a'],//允许的文件类型

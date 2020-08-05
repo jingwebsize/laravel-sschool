@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Storage;
+use Auth;
 
 class CoursesController extends Controller
 {
@@ -23,7 +25,9 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return view('courses');
+        $filename = Auth::user()->profile->addr.'.jpg';
+        $flag = Storage::disk('userletter')->exists($filename);
+        return view('courses', ['flag'=>$flag,'fileurl'=>'userletter/'.$filename]);
     }
 
 }

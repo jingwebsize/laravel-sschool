@@ -14,6 +14,7 @@ Route::group([
     $router->resource('students', UserController::class);
     $router->resource('posters', PosterController::class);
     $router->resource('comments', CommentController::class);
+    $router->resource('summary', InfoController::class);
     $router->get('students/export', 'UsersController@export')->name('users.export');
     $router->get('students/import', 'UsersController@import')->name('users.import');
 });

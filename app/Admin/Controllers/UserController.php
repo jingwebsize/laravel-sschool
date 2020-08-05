@@ -12,6 +12,20 @@ use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Encore\Admin\Widgets\Table;
 use Hash;
+function barcodeNumberExists($number) {
+    // query the database and return a boolean
+    // for instance,it might look like this in Laravel
+    return User::where('userid', $number)->exists();
+}
+function generateBarcodeNumber() {
+    $number = mt_rand(100000000,999999999); // better than rand()
+    // call the same function if the barcode exists already
+    if (barcodeNumberExists($number)) {
+        return generateBarcodeNumber();
+    }
+    // otherwise,it's valid and can be used
+    return $number;
+}
 
 class UserController extends AdminController
 {
@@ -20,7 +34,7 @@ class UserController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Students';
+    protected $title = '学员列表';
 
     /**
      * Make a grid builder.
@@ -51,15 +65,15 @@ class UserController extends AdminController
         // $grid->column('tutor', '导师')->sortable();
         // $grid->column('type', '类别')->using($typearr)->filter();
         // $grid->column('url')->link();
-        $grid->column('user.id', 'Id');
-        $grid->column('house', 'Group');
-        $grid->column('name', 'Name');
-        $grid->column('school', 'School')->sortable();
-        $grid->column('tutor', 'Supervisor')->sortable();
-        $grid->column('major', 'Major')->width(200)->sortable();
-        $grid->column('type', 'Type')->using($typearr)->filter();
-        $grid->column('user.tel', 'Tel');
-        $grid->column('user.email', 'Email(Username)');
+        $grid->column('user.id', 'ID');
+        $grid->column('house', '组别');
+        $grid->column('name', '姓名');
+        $grid->column('school', '学校')->sortable();
+        $grid->column('tutor', '导师')->sortable();
+        $grid->column('major', '专业')->width(200)->sortable();
+        $grid->column('type', '类型')->using($typearr)->filter();
+        $grid->column('user.tel', '手机');
+        $grid->column('user.email', '邮箱(用户名)');
         // $grid->column('profile', 'History')->display(function ($profile){
         //     $count = count($profile);
         //     return "<span style='color:blue'>$count</span>";
@@ -83,9 +97,9 @@ class UserController extends AdminController
             // 去掉默认的id过滤器
             $filter->disableIdFilter();
         
-            $filter->like('name', 'Name');
-            $filter->like('email', 'Email');
-            $filter->like('tel', 'Tel');
+            $filter->like('name', '姓名');
+            $filter->like('email', '邮箱');
+            $filter->like('tel', '电话');
         });
 
         return $grid;

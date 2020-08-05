@@ -15,7 +15,7 @@ class CommentController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Laravelista\Comments\Comment';
+    protected $title = '评论';
 
     /**
      * Make a grid builder.
@@ -28,18 +28,18 @@ class CommentController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->model()->orderBy('created_at','desc');
-        $grid->column('commenter.name', __('Username'));
+        $grid->column('commenter.name', '评论人');
         // $grid->column('commenter_id', __(' id'));
         // $grid->column('commenter_type', __('Commenter type'));
         // $grid->column('guest_name', __('Guest name'));
         // $grid->column('guest_email', __('Guest email'));
         // $grid->column('commentable_type', __('Commentable type'));
-        $grid->column('commentable_id', __('Poster id'));
-        $grid->column('comment', __('Comment'));
+        $grid->column('commentable_id', '海报ID');
+        $grid->column('comment', '评论内容')->width('900');
         // $grid->column('approved', __('Approved'));
-        $grid->column('child_id', __('Child id'));
+        $grid->column('child_id', '回复评论的ID');
         // $grid->column('deleted_at', __('Deleted at'));
-        $grid->column('created_at', __('Created at'));
+        $grid->column('created_at', '创建时间');
         // $grid->column('updated_at', __('Updated at'));
 
         return $grid;

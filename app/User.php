@@ -39,9 +39,13 @@ class User extends Authenticatable
     ];
 
     public function profile(){
-        return $this->hasMany(UserProfile::class,'userid','userid');
+        return $this->hasOne(UserProfile::class,'userid','userid');
     }
     public function info(){
-        return $this->hasMany(UserProfile::class,'userid','userid');
+        return $this->hasOne(UserProfile::class,'userid','userid');
+    }
+
+    public function zan(){
+        return $this->hasMany(Zan::class,'userid','userid');
     }
 }

@@ -2,31 +2,11 @@
 
 @section('content')
 <div class="container">
-    <!-- <ul class="nav nav-tabs"> -->
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="home">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="profile">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="courses">Courses</a>
-        </li> -->
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="profile">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="poster">Poster</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="download">Download</a>
-        </li>
-    </ul> -->
 <br/>
     <div class="row justify-content-center">
         <div class="col-md-12">
             @if($posters->isEmpty())
-                <p>请等待开放。</P>
+                <h3>请等待开放。</h3>
             @endif
             @foreach($posters as $poster)
                 <div class="blog-post">

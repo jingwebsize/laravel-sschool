@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Storage;
 use App\User;
 use App\UserInfo;
+use App\Zan;
 use Auth;
 
 class UserInfoController extends Controller
@@ -42,6 +43,30 @@ class UserInfoController extends Controller
         // if($info->fileurl){$info->fileurl = Storage::disk('userfile')->url($info->file);}
         return view('info',['info'=>$info]);
     }
+    public function show()
+    {
+        $user= Auth::user();
+        // $grouid = $user->profile->house;
+        $info = UserInfo::where('house', $user->profile->house)->get();
+        return view('infoshow',['posters'=>$info]);
+    }
+
+    public function submit(Request $request)
+    {
+        $user= Auth::user();
+        if (Zan::where('userid', $user->userid)->exists()){
+            return '<h3>您已完成投票！</h3>';
+        }else{
+            foreach ($request->input('zans') as $zan){
+                Zan::create([
+                    'userid' => $user->userid,
+                    'summaryid' => $zan,
+                ]);
+            }
+        }
+
+        return redirect('profileshow');
+    }
 
     public function upload(Request $request)
     {
@@ -63,15 +88,15 @@ class UserInfoController extends Controller
                     // $filename = date('Ymdhis').'.'.$ext;
                     $filename=$fileCharater->getClientOriginalName();
 
-                    //data
-                    $data = array(
-                        'filename'=>$filename,
-                    );
                     //存储文件。disk里面的public。总的来说，就是调用disk模块里的public配置
                     if(Storage::disk($filetype)->exists($filename)){
                         $filename = date('Ymdhis').'.'.$ext;
                     }
                     Storage::disk($filetype)->put($filename, file_get_contents($path));
+                    //data
+                    $data = array(
+                        'filename'=>$filename,
+                    );
                     return response()->json($data,200); 
                 }else{
                     return response()->json(null,204); 
@@ -84,9 +109,11 @@ class UserInfoController extends Controller
     }
     public function update(Request $request,$id)
     {
+        $user= Auth::user();
         $info = UserInfo::find($id);
         $info->fill($request->only(['url', 'tsize', 'file']));
-        var_dump($info);
+        $info->house = $user->profile->house;
+        // var_dump($info);
         $info->save();
         return redirect('profile');
     }

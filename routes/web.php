@@ -28,9 +28,13 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('/home/{id}', 'HomeController@update')->name('homeupdate');
 Route::get('/profile', 'UserInfoController@index')->name('profile');
+Route::get('/profileshow', 'UserInfoController@show')->name('profile.show');
+Route::post('/profileshow', 'UserInfoController@submit')->name('profile.submit');
+Route::get('/courses', 'CoursesController@index')->name('courses');
+
 Route::post('/profile/upload', 'UserInfoController@upload')->name('profileupload');
 Route::post('/profile/{id}', 'UserInfoController@update')->name('profileupdate');
-// Route::get('/courses', 'CoursesController@index')->name('courses');
+
 Route::get('/poster', 'PosterController@index')->name('poster');
 Route::get('/poster/{poster}', 'PosterController@show')->name('poster.show');
 Route::get('/poster/{poster}/cancel', 'PosterController@cancel')->name('poster.cancel');
