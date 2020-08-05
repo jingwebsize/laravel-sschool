@@ -5,6 +5,9 @@
 <br/>
     <div class="row justify-content-center">
         <div class="col-md-12">
+            @if($info->house>0) 
+                <h6>您已完成提交。</h6>
+            @else
             <div class="card">
                 <!-- <div class="card-header">Supplementary Information</div> -->
                 <div class="card-header">提交总结</div>
@@ -45,6 +48,7 @@
                 <br/>        
                 </form>
             </div>
+            @endif
         </div>
     </div>
 </div>
