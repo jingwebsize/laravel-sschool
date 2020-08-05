@@ -45,7 +45,7 @@
                     <!-- Your message is required. -->
                     请输入文字
                 </div>
-                <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small>
+                <!-- <small class="form-text text-muted"><a target="_blank" href="https://help.github.com/articles/basic-writing-and-formatting-syntax">Markdown</a> cheatsheet.</small> -->
             </div>
             <!-- <div class="row"> -->
                 <!-- <div class="col-md-2"> -->
