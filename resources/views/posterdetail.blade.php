@@ -94,7 +94,7 @@
                 @else
                     <a href="/poster/{{$poster->id}}/likeit" type="button" class="btn-outline-primary"><i class="far fa-thumbs-up"></i> I Like it</a>
                 @endif -->
-                <button type="button" class="btn {{ $poster->star(Auth::user()->userid)->exists()? 'btn-primary':'btn-outline-primary'}}" id="starbutton" onclick="mymethod()"><i id="starlogo" class="{{ $poster->star(Auth::user()->userid)->exists()? 'fas':'far'}} fa-thumbs-up"></i>点赞</button>
+                <button type="button" class="btn {{ $poster->star(Auth::user()->userid)->exists()? 'btn-primary':'btn-outline-primary'}}" id="starbutton" onclick="mymethod()"><i id="starlogo" class="{{ $poster->star(Auth::user()->userid)->exists()? 'fas':'far'}} fa-thumbs-up"></i> 点赞</button>
                 
             </div>
             <br/>
