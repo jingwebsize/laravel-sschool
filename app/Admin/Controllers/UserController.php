@@ -67,13 +67,14 @@ class UserController extends AdminController
         // $grid->column('url')->link();
         $grid->column('user.id', 'ID');
         $grid->column('house', '组别');
+        $grid->column('addr', '编号');
         $grid->column('name', '姓名');
         $grid->column('school', '学校')->sortable();
-        $grid->column('tutor', '导师')->sortable();
-        $grid->column('major', '专业')->width(200)->sortable();
-        $grid->column('type', '类型')->using($typearr)->filter();
-        $grid->column('user.tel', '手机');
+        // $grid->column('tutor', '导师')->sortable();
+        // $grid->column('major', '专业')->width(200)->sortable();
+        // $grid->column('type', '类型')->using($typearr)->filter();
         $grid->column('user.email', '邮箱(用户名)');
+        $grid->column('user.tel', '手机'); 
         // $grid->column('profile', 'History')->display(function ($profile){
         //     $count = count($profile);
         //     return "<span style='color:blue'>$count</span>";
