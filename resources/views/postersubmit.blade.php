@@ -51,7 +51,7 @@
                 
                 <div class="col-md-10" id="video" hidden = "hidden">
                     <div class="form-group">
-                        <label for="videourl">视频解说文件 (<a href="{{url('userimg/video_upload.png')}}" target="_blank">视频链接说明</a>)</label>
+                        <label for="videourl">视频链接代码 (<a href="{{url('userimg/video_upload.png')}}" target="_blank">视频链接说明</a>)</label>
                         <textarea id="videourl" class="form-control" name="videourl" rows="3">{{$poster->videourl}}</textarea>
                         
                         
