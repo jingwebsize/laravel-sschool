@@ -37,18 +37,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('poster.create')}}">海报提交</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('poster')}}">海报展</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('profile')}}">总结提交</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('profile.show')}}">总结评选</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('courses')}}">结业证书</a>
-                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
