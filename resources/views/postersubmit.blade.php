@@ -5,8 +5,10 @@
 <br/>
     @if($poster->flag==1) 
     <h6>完成提交，请等待审核。</h6>
-    @elseif ($poster->flag==2) 
+    @elseif($poster->flag==2) 
     <h6>审核通过。</h6>
+    @elseif($postertag==1) 
+    <h6>已截止提交。</h6>
     @else
     <div class="row justify-content-center">
         <div class="col-md-12">

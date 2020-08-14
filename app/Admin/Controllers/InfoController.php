@@ -81,14 +81,14 @@ class InfoController extends AdminController
         $form = new Form(new UserInfo());
 
         $form->text('userid', __('Userid'));
-        $form->text('year', __('Year'));
+        // $form->text('year', __('Year'));
         $form->text('name', __('Name'));
-        $form->switch('house', __('House'));
-        $form->switch('tcolor', __('Tcolor'));
-        $form->switch('tsize', __('Tsize'));
-        $form->url('url', __('Url'));
-        $form->text('remark', __('Remark'));
-        $form->file('file', __('File'));
+        $form->text('house', 'GroupId');
+        // $form->switch('tcolor', __('Tcolor'));
+        // $form->switch('tsize', __('Tsize'));
+        $form->text('url', 'word_url');
+        // $form->text('remark', __('Remark'));
+        $form->text('file', 'pdf_url');
 
         return $form;
     }

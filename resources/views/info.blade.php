@@ -42,7 +42,7 @@
                 <br/> 
                 <!-- <div class="row justify-content-md-center"> -->
                     <div class="col-md-5">
-                        <button type="submit" class="btn btn-primary btn-block" onclick="javascript:return confirm('提交后不可修改，确定提交吗?');">提交</button>
+                        <button id="formsubmit" type="submit" class="btn btn-primary btn-block">提交</button>
                     </div>
                 <!-- </div> -->
                 <br/>        
@@ -54,7 +54,20 @@
 </div>
 <!-- <script src="https://kit.fontawesome.com/be20376ea9.js" crossorigin="anonymous"></script> -->
 <script>
-// $(function(){
+$(function(){
+    $('#formsubmit').click(function (){
+        if (!$('#payurl').val()) {
+            alert('请上传Word版总结');
+            return false;
+        };
+        console.log($('#payurl').val());
+        if (!$('#sumurl').val()) {
+            alert('请上传Pdf版总结');
+            return false;
+        }
+        return confirm('提交后不可修改，确定提交吗?');
+    });
+});
     // 上传附件
     $('#tsize').val("{{$info->tsize}}");
     var payurl = "{{ $info->url? asset('userfile/'.$info->url):null }}";

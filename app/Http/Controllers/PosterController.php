@@ -32,12 +32,14 @@ class PosterController extends Controller
     public function create()
     {
         if (Poster::where('userid', Auth::user()->userid)->exists()) {
-            $poster = Poster::where('userid', Auth::user()->userid)->first();;
+            $poster = Poster::where('userid', Auth::user()->userid)->first();
+            $postertag = 0;
             // var_dump($poster);
         }else{
             $poster = new Poster;
+            $postertag = 1;
         }
-        return view('postersubmit',['poster'=>$poster]);
+        return view('postersubmit',['poster'=>$poster,'postertag'=>$postertag]);
     }
     public function update(Request $request)
     {
