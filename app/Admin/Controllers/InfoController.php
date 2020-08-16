@@ -34,11 +34,11 @@ class InfoController extends AdminController
         $grid->column('url', 'word版')->link(function ($info) {
             $link = url("userfile/".$info->url);
             return $link;
-        });
+        })->sortable();
         $grid->column('file', 'pdf版')->link(function ($info) {
             $link = url("userfile/".$info->file);
             return $link;
-        });
+        })->sortable();
         $grid->column('zans_count', '点赞数')->sortable();
         $grid->column('created_at', __('Created at'));
 

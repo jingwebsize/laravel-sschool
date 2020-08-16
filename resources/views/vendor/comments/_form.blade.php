@@ -52,7 +52,7 @@
                 <!-- <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">Submit</button> -->
                 <button type="submit" class="btn btn-sm btn-outline-success text-uppercase">立即评论</button>
                 <!-- </div><div class="col-md-2"> -->
-                <a class="btn btn-sm btn-outline-primary ml-4" role="button" target="comments" href="/postercomments/{{$poster->id}}">评论区更新</a>
+                <a class="btn btn-sm btn-outline-primary ml-4" role="button" target="comments" href="/postercomments/{{$poster->id}}">讨论区刷新</a>
                 <!-- </div> -->
             </div>
         </form>

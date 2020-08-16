@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',function(){
-    return Redirect::to('/postersubmit');
+    return Redirect::to('/poster');
     });
 Route::get('/home',function(){
-    return Redirect::to('/postersubmit');
+    return Redirect::to('/poster');
     });
 Auth::routes();
 

@@ -35,7 +35,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('poster.create')}}">海报提交</a>
+                            <a class="nav-link" href=" 'poster')}}">海报展</a >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('profile')}}">总结提交</a >
                         </li>
                     </ul>
 
