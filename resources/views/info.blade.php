@@ -16,7 +16,7 @@
                 <div class="col-md-10">
                     <br/>
                     <div class="form-group">
-                        <label for="payfile">Word版总结(<4M)</label>
+                        <label for="payfile">Word版总结（文件命名格式：编号_姓名，文件大小：<4M）</label>
                         <input id="payfile" type="file" class="form-control" name="payfile">
                         <input id="payurl" type="text" name="url" value="{{$info->url}}" hidden>    
                     </div> 
@@ -34,7 +34,7 @@
                 <br/>
                 <div class="col-md-10">
                     <div class="form-group">
-                        <label for="sumfile">Pdf版总结(<4M)</label>
+                        <label for="sumfile">Pdf版总结（文件命名格式：编号_姓名，文件大小：<4M）</label>
                         <input id="sumfile" type="file" class="form-control-file" name="sumfile">
                         <input id="sumurl" type="text" name="file" value="{{$info->file}}" hidden> 
                     </div>               
