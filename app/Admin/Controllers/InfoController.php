@@ -31,6 +31,7 @@ class InfoController extends AdminController
         $grid->column('userid', '用户ID');
         $grid->column('name', '姓名');
         $grid->column('house','学员组别')->filter();
+        $grid->column('remark','学员编号')->sortable();
         $grid->column('url', 'word版')->link(function ($info) {
             $link = url("userfile/".$info->url);
             return $link;

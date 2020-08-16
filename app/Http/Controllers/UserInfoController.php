@@ -113,6 +113,7 @@ class UserInfoController extends Controller
         $info = UserInfo::find($id);
         $info->fill($request->only(['url', 'tsize', 'file']));
         $info->house = $user->profile->house;
+        $info->remark = $user->profile->addr;
         // var_dump($info);
         $info->save();
         return redirect('profile');
